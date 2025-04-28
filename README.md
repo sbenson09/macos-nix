@@ -1,4 +1,4 @@
-# sbenson-macos-flake
+# macOS Nix Configuration
 
 This repository contains the configuration for Sean’s macOS system, built using nix-darwin and home-manager, fully modularized via Nix flakes.
 
