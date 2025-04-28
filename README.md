@@ -55,8 +55,9 @@ darwin-rebuild switch --flake .#sbenson
 
 ## 🔧 Updating dependencies
 
+```
 nix flake update
-
+```
 This updates flake.lock to the latest upstream revisions.
 
 
