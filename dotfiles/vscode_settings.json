@@ -1,0 +1,52 @@
+{
+  "workbench.colorTheme": "Hyper Term Black",
+  "editor.wordWrap": "on",
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Allman, ColumnLimit: 300, AllowShortFunctionsOnASingleLine: Empty, AllowShortConstructorOnASingleLine: Empty, ConstructorInitializerAllOnOneLineOrOnePerLine: false, BreakConstructorInitializers: BeforeComma, DerivePointerAlignment: false, PointerAlignment: Left }",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "lkrms.inifmt",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "git.autofetch": true,
+  "debug.onTaskErrors": "showErrors",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "workbench.settings.applyToAllProfiles": []
+}

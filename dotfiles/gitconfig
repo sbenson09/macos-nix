@@ -1,0 +1,48 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Sean Benson
+	email = sbenson@hey.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBt8fryDRfgyveNZb2c8a0tBqDFXNeI2BYbvZYCVW811
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+
+[alias]
+	# List available aliases
+	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+	# Command shortcuts
+	ci = commit
+	co = checkout
+	st = status
+	# Display tree-like log, because default log is a pain…
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	# Useful when you have to update your last commit
+	# with staged files without editing the commit message.
+	oops = commit --amend --no-edit
+	# Ensure that force-pushing won't lose someone else's work (only mine).
+	push-with-lease = push --force-with-lease
+	# Edit last commit message
+	reword = commit --amend
+	# Undo last commit but keep changed files in stage
+	uncommit = reset --soft HEAD~1
+
+[core]
+	# VSCode
+	editor = code --wait --new-window
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[diff]
+	tool = vscode
+[push]
+	autoSetupRemote = true

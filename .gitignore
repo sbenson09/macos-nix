@@ -1,0 +1,43 @@
+# .gitignore for sbenson-macos-flake
+
+# Nix build artifacts
+result
+result-
+
+# Nix garbage/temporary files
+*.drv
+*.log
+
+# Flake lock file (optional to ignore if you don't want to track exact dependency versions)
+# Uncomment if you prefer to ignore lock updates manually
+# flake.lock
+
+# macOS system files
+.DS_Store
+
+# Direnv environment files (if using direnv + nix)
+.envrc
+.direnv/
+
+# VSCode project settings (optional if using workspace settings)
+.vscode/
+
+# Backup files created by editors
+*~
+*.swp
+*.swo
+
+# Other common temporary folders
+node_modules/
+.cache/
+__pycache__/
+
+# GitHub Codespaces / GitPod / DevContainers
+.devcontainer/
+.gitpod.yml
+
+# Homebrew logs/cache (if ever manually run inside repo)
+Library/Caches/Homebrew/
+
+# Nix user profile backup artifacts
+.hm-backup/
