@@ -15,9 +15,9 @@ It manages:
 ├── flake.nix                # Top-level flake defining inputs, outputs, and module imports
 ├── flake.lock               # Locked dependencies (generated automatically)
 ├── modules/                 # Modular system configuration
-│   ├── configuration.nix    # Basic system settings (platform, experimental features, etc.)
+│   ├── configuration.nix    # Basic system settings 
 │   ├── homebrew.nix         # Homebrew and nix-homebrew setup
-│   ├── system-defaults.nix  # macOS defaults (dock, finder, key repeat, etc.)
+│   ├── system-defaults.nix  # macOS defaults 
 │   └── users.nix            # User account and Home Manager environment
 ├── dotfiles/                # Linked dotfiles managed via Home Manager
 │   ├── zshrc
