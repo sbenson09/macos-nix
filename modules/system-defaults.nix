@@ -1,26 +1,47 @@
-# macOS system defaults and preferences
 
 { config, pkgs, username, ... }:
 
 {
   system.defaults = {
-    dock = {
-      autohide = true;
+    # Dock and Finder settings
+    dock.autohide = true;
+    finder.FXPreferredViewStyle = "Nlsv"; # List view
 
-      # Set persistent dock apps
-      persistent-apps = [
-        "/System/Applications/Messages.app"
-        "/Applications/Pocket Casts.app"
-        "/Applications/HEY.app"
-        "/System/Cryptexes/App/System/Applications/Safari.app"
-        "${pkgs.vscode}/Applications/Visual Studio Code.app"
-        "/Applications/ChatGPT.app"
-      ];
+    # Global settings
+    NSGlobalDomain = {
+      KeyRepeat = 2;
+      AppleShowAllExtensions = true; 
     };
 
-    NSGlobalDomain.KeyRepeat = 2; # Faster key repeat
-    loginwindow.GuestEnabled = false; # Disable Guest user
-    finder.FXPreferredViewStyle = "Nlsv"; # List view by default
-    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true; # Auto macOS updates
+    # Login Window
+    loginwindow.GuestEnabled = false;
+
+    # Software Updates
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
+    # Screenshots
+    screencapture = {
+      type = "png"; 
+      location = "~/Documents/Screenshots"; 
+    };
+
+    # Desktop Services (disable .DS_Store creation on network volumes)
+    
+    CustomUserPreferences = {
+      "com.apple.desktopservices" = {
+        "com.apple.desktopservices.DSDontWriteNetworkStores" = true;
+        "com.apple.desktopservices.DSDontWriteUSBStores" = true;
+      };
+    };
+    
+    # Dock persistent apps
+    dock.persistent-apps = [
+      "/System/Applications/Messages.app"
+      "/Applications/Pocket Casts.app"
+      "/Applications/HEY.app"
+      "/System/Cryptexes/App/System/Applications/Safari.app"
+      "${pkgs.vscode}/Applications/Visual Studio Code.app"
+      "/Applications/ChatGPT.app"
+    ];
   };
 }

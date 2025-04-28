@@ -23,6 +23,12 @@
       stateVersion = "24.05"; # Home Manager version
     };
 
+    # Create Developer Folder
+    home.file."Developer/.keep".text = "";
+
+    # Create screenshot folder
+    home.file."Documents/Screenshots/.keep".text = "";
+
     # Link dotfiles into the home directory
     home.file.".zshrc".source = ../dotfiles/zshrc;
     home.file.".vimrc".source = ../dotfiles/vimrc;
@@ -77,5 +83,17 @@
         };
       };
     };
+
+    launchd.agents = {
+      tailscale = {
+        enable = true;
+        config = {
+          Label = "com.tailscale.ipn";
+          ProgramArguments = [ "/Applications/Tailscale.app/Contents/MacOS/Tailscale" "up" ];
+          RunAtLoad = true;
+          KeepAlive = true;
+        };
+      };
+    };  
   };
 }

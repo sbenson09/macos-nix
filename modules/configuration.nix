@@ -19,12 +19,35 @@
 
   # System packages to be installed globally
   environment.systemPackages = with pkgs; [
-    vim
-    tmux
-    alacritty
-    nixfmt-rfc-style
-    oh-my-zsh
-    vscode
+    awscli
+    bat
+    discord
+    dive
+    firefox
+    meslo-lgs-nf
+    gh
+    go
+    google-cloud-sdk
+    grandperspective
+    htop
+    jq
+    kind
     kitty
+    kubectx
+    kubectl
+    nixfmt-rfc-style
+    nmap
+    oh-my-zsh
+    opentofu
+    pyenv
+    slack
+    spotify
+    tmux
+    trivy
+    vim
+    vscode
+    wireshark
+    zsh-autosuggestions
+    zsh-syntax-highlighting
   ];
 }
