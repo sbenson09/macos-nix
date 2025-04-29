@@ -10,11 +10,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
-    let
-      username = "sbenson"; # Define username once and reuse
-    in {
-      darwinConfigurations."${username}" = nix-darwin.lib.darwinSystem {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }: {
+    darwinConfigurations = {
+      "sbenson" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         modules = [
           home-manager.darwinModules.home-manager
           nix-homebrew.darwinModules.nix-homebrew
@@ -24,9 +23,28 @@
           ./modules/users.nix
         ];
         specialArgs = {
-          inherit username; # Pass username into modules
-          inherit self;      # Pass flake self into modules
+          username = "sean.benson"; # <-- Work machine username
+          role = "work";
+          inherit self;
+        };
+      };
+
+      "sbenson-personal" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          nix-homebrew.darwinModules.nix-homebrew
+          ./modules/configuration.nix
+          ./modules/homebrew.nix
+          ./modules/system-defaults.nix
+          ./modules/users.nix
+        ];
+        specialArgs = {
+          username = "sbenson"; # <-- Personal machine username
+          role = "personal";
+          inherit self;
         };
       };
     };
+  };
 }

@@ -1,6 +1,6 @@
 # User account settings and Home Manager environment configuration
 
-{ config, pkgs, username, self, ... }:
+{ config, pkgs, username, lib, self, role, ... }:
 
 {
   # Define local user
@@ -84,7 +84,7 @@
       };
     };
 
-    launchd.agents = {
+    launchd.agents = lib.mkIf (role == "personal") {
       tailscale = {
         enable = true;
         config = {

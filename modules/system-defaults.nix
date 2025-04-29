@@ -1,5 +1,5 @@
 
-{ config, pkgs, username, ... }:
+{ config, pkgs, lib, role, username, ... }:
 
 {
   system.defaults = {
@@ -33,15 +33,16 @@
         "com.apple.desktopservices.DSDontWriteUSBStores" = true;
       };
     };
-    
+
     # Dock persistent apps
     dock.persistent-apps = [
       "/System/Applications/Messages.app"
       "/Applications/Pocket Casts.app"
-      "/Applications/HEY.app"
       "/System/Cryptexes/App/System/Applications/Safari.app"
       "${pkgs.vscode}/Applications/Visual Studio Code.app"
       "/Applications/ChatGPT.app"
+    ]  ++ lib.optionals (role == "personal") [
+      "/Applications/HEY.app"
     ];
   };
 }

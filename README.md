@@ -43,12 +43,18 @@ nix run github:LnL7/nix-darwin
 ### 2. Clone this repository
 
 ```
-git clone https://github.com/YOUR-USERNAME/sbenson-macos-flake.git
+git clone https://github.com/sbenson09/macos-nix.git
 cd sbenson-macos-flake
 ```
 
 ### 3. Apply the system configuration
 
+For personal computers:
+```
+darwin-rebuild switch --flake .#sbenson
+```
+
+For work computers:
 ```
 darwin-rebuild switch --flake .#sbenson
 ```
@@ -64,3 +70,5 @@ This updates flake.lock to the latest upstream revisions.
 ## 📃 Notes
 - Apps installed via Homebrew’s mas-cli may require manual App Store login.
 - macOS System extensions may require manual approval in macOS System Settings.
+- Certain apps and configurations are only applied to personal computers.
+- Different usernames anticipated for personal and work computers.

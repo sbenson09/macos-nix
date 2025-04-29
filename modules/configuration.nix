@@ -1,5 +1,5 @@
 # Basic system-wide Nix configuration
-{ config, pkgs, username, self, ... }:
+{ config, pkgs, username, role, self, ... }:
 
 {
   # Platform (Mac ARM)
@@ -21,7 +21,6 @@
   environment.systemPackages = with pkgs; [
     awscli
     bat
-    discord
     dive
     firefox
     meslo-lgs-nf
@@ -40,7 +39,6 @@
     oh-my-zsh
     opentofu
     pyenv
-    slack
     spotify
     tmux
     trivy
@@ -49,5 +47,8 @@
     wireshark
     zsh-autosuggestions
     zsh-syntax-highlighting
+  ]  ++ lib.optionals (role == "personal") [
+    discord
+    slack
   ];
 }
